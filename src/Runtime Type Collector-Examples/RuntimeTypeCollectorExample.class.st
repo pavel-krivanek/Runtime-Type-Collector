@@ -15,7 +15,7 @@ RuntimeTypeCollectorExample class >> example [
 	
 	| collector |
 	collector := RuntimeTypeCollector new.
-	collector installOnPackageNamed: 'Schmidt Type Collector-Examples' mode: #variables.
+	collector installOnPackageNamed: 'Runtime Type Collector-Examples' mode: #variables.
 	
 	RuntimeTypeCollectorExample suite run.
 
@@ -25,7 +25,7 @@ RuntimeTypeCollectorExample class >> example [
 	"now collect return values"
 
 	collector := RuntimeTypeCollector new.
-	collector installOnPackageNamed: 'Schmidt Type Collector-Examples' mode: #returnValues.
+	collector installOnPackageNamed: 'Runtime Type Collector-Examples' mode: #returnValues.
 	
 	RuntimeTypeCollectorExample suite run.
 
@@ -34,13 +34,13 @@ RuntimeTypeCollectorExample class >> example [
 ]
 
 { #category : 'examples' }
-RuntimeTypeCollectorExample class >> mergeTypesInPackage [
+RuntimeTypeCollectorExample class >> mergeTypesInPackage: packageName [
 
 	<example>
 	
 	| collector |
 	collector := RuntimeTypeCollector new.
-	collector prepareOnPackageNamed: 'Documaps Direct Commands' mode: #variables.
+	collector prepareOnPackageNamed: packageName mode: #variables.
 	collector readAllCurrentTypesFromPragmas.
 	collector mergeAll.
 	EpMonitor disableDuring: [ 
