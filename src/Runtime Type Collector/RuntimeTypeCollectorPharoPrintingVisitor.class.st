@@ -52,7 +52,7 @@ RuntimeTypeCollectorPharoPrintingVisitor >> visitBlockType: aType [
 		stream << ' arguments ('.
 		aType argumentClasses do: [ :eachTypeSet |
 			self visitTypeSet: eachTypeSet ]
-			betweenDo: [ stream space].	
+			separatedBy: [ stream space].	
 		stream << ')'
 	 ].
 	aType wasUsed ifTrue: [  
@@ -122,7 +122,7 @@ RuntimeTypeCollectorPharoPrintingVisitor >> visitTypeSet: aTypeSet [
 		do: [ :each | each isCollection 
 			ifTrue: [ self visitTypeSet: each] 
 			ifFalse: [ self visitType: each ] ] 
-		betweenDo: [ stream << ' ' ].
+		separatedBy: [ stream << ' ' ].
 	useParentheses ifTrue: [ stream << ')' ].
 
 ]
