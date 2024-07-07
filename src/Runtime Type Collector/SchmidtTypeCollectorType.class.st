@@ -38,11 +38,11 @@ SchmidtTypeCollectorType class >> commonSuperclassOf: classes [
 	(current inheritsFrom: Integer) ifTrue: [ ^ Integer ].
 	(current inheritsFrom: String) ifTrue: [ ^ String ].
 	(current inheritsFrom: Boolean) ifTrue: [ ^ Boolean ].
-	(current inheritsFrom: PdmDirectSystem) ifTrue: [ ^ IPdmSystem ].
+	"(current inheritsFrom: PdmDirectSystem) ifTrue: [ ^ IPdmSystem ].
 	(current inheritsFrom: PdmDirectDatabase) ifTrue: [ ^ IDatabaseSubsystem ].
 	(current inheritsFrom: PdmStandardNames) ifTrue: [ ^ INamesResolver ].
 	(current inheritsFrom: PdmProjectDictionary) ifTrue: [ ^ IProjectDictionary ].
-	(current inheritsFrom: PdmStatusTracker) ifTrue: [ ^ IStatusTracker ].
+	(current inheritsFrom: PdmStatusTracker) ifTrue: [ ^ IStatusTracker ]."
 
 	^ current
 	
