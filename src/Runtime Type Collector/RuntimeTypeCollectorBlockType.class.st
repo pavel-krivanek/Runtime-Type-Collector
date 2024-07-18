@@ -3,7 +3,7 @@ Describes a block closure
 "
 Class {
 	#name : 'RuntimeTypeCollectorBlockType',
-	#superclass : 'SchmidtTypeCollectorType',
+	#superclass : 'RuntimeTypeCollectorType',
 	#instVars : [
 		'argumentClasses',
 		'returnClasses',

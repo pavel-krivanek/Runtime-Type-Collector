@@ -3,7 +3,7 @@ Descripbes an association.
 "
 Class {
 	#name : 'RuntimeTypeCollectorAssociationType',
-	#superclass : 'SchmidtTypeCollectorType',
+	#superclass : 'RuntimeTypeCollectorType',
 	#instVars : [
 		'keyClasses',
 		'valueClasses'

@@ -2,7 +2,7 @@
 Collected type description.
 "
 Class {
-	#name : 'SchmidtTypeCollectorType',
+	#name : 'RuntimeTypeCollectorType',
 	#superclass : 'Object',
 	#instVars : [
 		'typeClass',
@@ -13,7 +13,7 @@ Class {
 }
 
 { #category : 'private' }
-SchmidtTypeCollectorType class >> collectorTypesArrayFrom: aLiteral [
+RuntimeTypeCollectorType class >> collectorTypesArrayFrom: aLiteral [
 
 	| coll |
 	
@@ -25,7 +25,7 @@ SchmidtTypeCollectorType class >> collectorTypesArrayFrom: aLiteral [
 ]
 
 { #category : 'instance creation' }
-SchmidtTypeCollectorType class >> commonSuperclassOf: classes [ 
+RuntimeTypeCollectorType class >> commonSuperclassOf: classes [ 
 
 	| current |
 	
@@ -38,11 +38,6 @@ SchmidtTypeCollectorType class >> commonSuperclassOf: classes [
 	(current inheritsFrom: Integer) ifTrue: [ ^ Integer ].
 	(current inheritsFrom: String) ifTrue: [ ^ String ].
 	(current inheritsFrom: Boolean) ifTrue: [ ^ Boolean ].
-	"(current inheritsFrom: PdmDirectSystem) ifTrue: [ ^ IPdmSystem ].
-	(current inheritsFrom: PdmDirectDatabase) ifTrue: [ ^ IDatabaseSubsystem ].
-	(current inheritsFrom: PdmStandardNames) ifTrue: [ ^ INamesResolver ].
-	(current inheritsFrom: PdmProjectDictionary) ifTrue: [ ^ IProjectDictionary ].
-	(current inheritsFrom: PdmStatusTracker) ifTrue: [ ^ IStatusTracker ]."
 
 	^ current
 	
@@ -50,13 +45,13 @@ SchmidtTypeCollectorType class >> commonSuperclassOf: classes [
 ]
 
 { #category : 'instance creation' }
-SchmidtTypeCollectorType class >> fromLiteral: aLiteral [
+RuntimeTypeCollectorType class >> fromLiteral: aLiteral [
 
 	^ (self fromLiteralAsArray: aLiteral) asSet
 ]
 
 { #category : 'instance creation' }
-SchmidtTypeCollectorType class >> fromLiteralAsArray: aLiteral [
+RuntimeTypeCollectorType class >> fromLiteralAsArray: aLiteral [
 
 	| typeClass nullable |
 		
@@ -109,7 +104,7 @@ SchmidtTypeCollectorType class >> fromLiteralAsArray: aLiteral [
 ]
 
 { #category : 'utilities' }
-SchmidtTypeCollectorType class >> mergeAll: typesCollection [ 
+RuntimeTypeCollectorType class >> mergeAll: typesCollection [ 
 
 	| merged array |
 	
@@ -125,80 +120,80 @@ SchmidtTypeCollectorType class >> mergeAll: typesCollection [
 ]
 
 { #category : 'utilities' }
-SchmidtTypeCollectorType class >> mergeAll: typesCollection with: anotherCollection [ 
+RuntimeTypeCollectorType class >> mergeAll: typesCollection with: anotherCollection [ 
 
 	^ self mergeAll: typesCollection, anotherCollection.
 	
 ]
 
 { #category : 'comparing' }
-SchmidtTypeCollectorType >> <= b [ 
+RuntimeTypeCollectorType >> <= b [ 
 
 	^ typeClass name <= b typeClass name
 ]
 
 { #category : 'comparing' }
-SchmidtTypeCollectorType >> = anObject [
+RuntimeTypeCollectorType >> = anObject [
 
 	^ self class = anObject class
 		and: [ typeClass = anObject typeClass ]
 ]
 
 { #category : 'visiting' }
-SchmidtTypeCollectorType >> acceptVisitor: aVisitor [
+RuntimeTypeCollectorType >> acceptVisitor: aVisitor [
 	self subclassResponsibility
 ]
 
 { #category : 'accessing' }
-SchmidtTypeCollectorType >> beNullable [ 
+RuntimeTypeCollectorType >> beNullable [ 
 
 	self nullable: true
 ]
 
 { #category : 'comparing' }
-SchmidtTypeCollectorType >> hash [
+RuntimeTypeCollectorType >> hash [
 
 	^ self class hash bitXor: typeClass hash
 ]
 
 { #category : 'serialization' }
-SchmidtTypeCollectorType >> initialize [ 
+RuntimeTypeCollectorType >> initialize [ 
 	super initialize.
 	self nullable: false.
 ]
 
 { #category : 'serialization' }
-SchmidtTypeCollectorType >> isAssociationType [
+RuntimeTypeCollectorType >> isAssociationType [
 
 	^ false
 ]
 
 { #category : 'serialization' }
-SchmidtTypeCollectorType >> isBlockType [
+RuntimeTypeCollectorType >> isBlockType [
 
 	^ false
 ]
 
 { #category : 'serialization' }
-SchmidtTypeCollectorType >> isCollectionType [
+RuntimeTypeCollectorType >> isCollectionType [
 
 	^ false
 ]
 
 { #category : 'serialization' }
-SchmidtTypeCollectorType >> isDictionaryType [
+RuntimeTypeCollectorType >> isDictionaryType [
 
 	^ false
 ]
 
 { #category : 'serialization' }
-SchmidtTypeCollectorType >> isSimpleType [
+RuntimeTypeCollectorType >> isSimpleType [
 
 	^ false
 ]
 
 { #category : 'accessing' }
-SchmidtTypeCollectorType >> mergedSimplyOrNilWith: collectorType [
+RuntimeTypeCollectorType >> mergedSimplyOrNilWith: collectorType [
 
 	"returns association:
 	  key: merge result or nil if we can try to merge further
@@ -219,19 +214,19 @@ SchmidtTypeCollectorType >> mergedSimplyOrNilWith: collectorType [
 ]
 
 { #category : 'accessing' }
-SchmidtTypeCollectorType >> nullable [
+RuntimeTypeCollectorType >> nullable [
 
 	^ nullable
 ]
 
 { #category : 'accessing' }
-SchmidtTypeCollectorType >> nullable: anObject [
+RuntimeTypeCollectorType >> nullable: anObject [
 
 	nullable := anObject
 ]
 
 { #category : 'serialization' }
-SchmidtTypeCollectorType >> preMerge [ 
+RuntimeTypeCollectorType >> preMerge [ 
 
 	"merge own subtypes"
 	
@@ -239,13 +234,13 @@ SchmidtTypeCollectorType >> preMerge [
 ]
 
 { #category : 'accessing' }
-SchmidtTypeCollectorType >> typeClass [
+RuntimeTypeCollectorType >> typeClass [
 
 	^ typeClass
 ]
 
 { #category : 'accessing' }
-SchmidtTypeCollectorType >> typeClass: anObject [
+RuntimeTypeCollectorType >> typeClass: anObject [
 
 	typeClass := anObject
 ]

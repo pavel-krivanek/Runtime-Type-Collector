@@ -10,7 +10,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testAssociation [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(Association key #String value #Integer).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(Association key #String value #Integer).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -23,7 +23,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testAssociationNullable [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(Association:: key #String value #Integer).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(Association:: key #String value #Integer).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -36,7 +36,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testBlock1 [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure returning Integer).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure returning Integer).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -49,7 +49,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testBlock1Nullable [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure:: returning Integer).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure:: returning Integer).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -62,7 +62,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testBlock2 [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments #(#(String Symbol) Object) returning Integer).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments #(#(String Symbol) Object) returning Integer).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -75,7 +75,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testBlock2Nullable [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure:: arguments #(#(String Symbol) Object) returning Integer).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure:: arguments #(#(String Symbol) Object) returning Integer).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -88,7 +88,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testBlock3 [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments #(#(String Symbol) Object)).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments #(#(String Symbol) Object)).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -101,7 +101,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testBlock3Nullable [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure:: arguments #(#(String Symbol) Object)).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure:: arguments #(#(String Symbol) Object)).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -114,7 +114,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testBlock4 [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -127,7 +127,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testBlock4Nullable [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure::).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure::).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -140,7 +140,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testBlock5Nullable [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure:: arguments #(#(String:: Symbol::) (Object::)) returning (Integer::)).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure:: arguments #(#(String:: Symbol::) (Object::)) returning (Integer::)).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -153,7 +153,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testDictionary [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(Dictionary of String keys Integer).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(Dictionary of String keys Integer).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -166,7 +166,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testDictionary2 [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(Dictionary of () keys ()).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(Dictionary of () keys ()).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -179,7 +179,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testDictionary3 [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(Dictionary of (Integer String) keys Object).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(Dictionary of (Integer String) keys Object).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -192,7 +192,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testDictionaryNullable [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(Dictionary:: of String keys Integer).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(Dictionary:: of String keys Integer).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -205,7 +205,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testEmpty [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #().
+	typeSet := RuntimeTypeCollectorType fromLiteral: #().
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -218,7 +218,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testExtraParentheses [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #((String)).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #((String)).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -231,7 +231,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testMultipleSimple [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(String Symbol).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(String Symbol).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -244,7 +244,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testMultipleSimpleNullable1 [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(String:: Symbol).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(String:: Symbol).
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -257,7 +257,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testSimple [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #String.
+	typeSet := RuntimeTypeCollectorType fromLiteral: #String.
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -270,7 +270,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testSimpleMetaclass [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #'String class'.
+	typeSet := RuntimeTypeCollectorType fromLiteral: #'String class'.
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
@@ -283,7 +283,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testSimpleNullable [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #(String::).
+	typeSet := RuntimeTypeCollectorType fromLiteral: #(String::).
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.
 	
@@ -297,7 +297,7 @@ RuntimeTypeCollectorPharoPrintingVisitorTest >> testSimpleNullable2 [
 
 	| typeSet visitor  |
 	
-	typeSet := SchmidtTypeCollectorType fromLiteral: #('String::').
+	typeSet := RuntimeTypeCollectorType fromLiteral: #('String::').
 	
 	visitor := RuntimeTypeCollectorPharoPrintingVisitor new.
 	visitor visitTypeSet: typeSet.

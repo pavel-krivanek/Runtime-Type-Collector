@@ -3,7 +3,7 @@ Describes a keyed collection type.
 "
 Class {
 	#name : 'RuntimeTypeCollectorDictionaryType',
-	#superclass : 'SchmidtTypeCollectorType',
+	#superclass : 'RuntimeTypeCollectorType',
 	#instVars : [
 		'keyClasses',
 		'itemClasses'

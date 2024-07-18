@@ -3,7 +3,7 @@ Describes a simple type
 "
 Class {
 	#name : 'RuntimeTypeCollectorSimpleType',
-	#superclass : 'SchmidtTypeCollectorType',
+	#superclass : 'RuntimeTypeCollectorType',
 	#category : 'Runtime Type Collector',
 	#package : 'Runtime Type Collector'
 }

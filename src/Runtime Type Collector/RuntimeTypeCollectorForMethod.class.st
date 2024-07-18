@@ -276,28 +276,22 @@ RuntimeTypeCollectorForMethod >> leaveInContext: aContext node: aNode [
 
 	collectedReturnClasses add: (value asRuntimeTypeCollectorTypeIn: self).
 	
-	"store types of all temporaries because collections may be changed in lifetime of the method"	
 
-"	aContext method tempNames do: [ :tempName |
-		(collectedTempClasses at: tempName ifAbsentPut: [ Set new ])
-			add: (aContext tempNamed: tempName) asPdmTypeCollectorType.
-	]
-"	
 ]
 
 { #category : 'API' }
 RuntimeTypeCollectorForMethod >> mergeAll [ 
 
-	collectedReturnClasses := SchmidtTypeCollectorType mergeAll: collectedReturnClasses.
+	collectedReturnClasses := RuntimeTypeCollectorType mergeAll: collectedReturnClasses.
 	
 	collectedArgClasses := collectedArgClasses collect: [ :types |
-		SchmidtTypeCollectorType mergeAll: types. ].
+		RuntimeTypeCollectorType mergeAll: types. ].
 	
 	collectedTempClasses := collectedTempClasses collect: [ :types |
-		SchmidtTypeCollectorType mergeAll: types. ].
+		RuntimeTypeCollectorType mergeAll: types. ].
 	
 	collectedBlockArgClasses := collectedBlockArgClasses collect: [ :types |
-		SchmidtTypeCollectorType mergeAll: types. ].
+		RuntimeTypeCollectorType mergeAll: types. ].
 	
 	
 
@@ -417,19 +411,19 @@ RuntimeTypeCollectorForMethod >> readCurrentTypesFromPragmas [
 	targetMethod pragmas do: [ :pragma | 
 		(#(arg:type: arg:type:generated:) includes: pragma selector) 
 			ifTrue: [ 
-				collectedArgClasses at: pragma arguments first asSymbol put: (self typeSetWith: (SchmidtTypeCollectorType fromLiteral: pragma arguments second))  ].
+				collectedArgClasses at: pragma arguments first asSymbol put: (self typeSetWith: (RuntimeTypeCollectorType fromLiteral: pragma arguments second))  ].
 			
 		(#(var:type: var:type:generated:) includes: pragma selector) 
 			ifTrue: [ 
-				collectedTempClasses at: pragma arguments first asSymbol put: (self typeSetWith: (SchmidtTypeCollectorType fromLiteral: pragma arguments second))  ].
+				collectedTempClasses at: pragma arguments first asSymbol put: (self typeSetWith: (RuntimeTypeCollectorType fromLiteral: pragma arguments second))  ].
 			
 		(#(blockArg:type: blockArg:type:generated:) includes: pragma selector) 
 			ifTrue: [ 
-				collectedBlockArgClasses at: pragma arguments first asSymbol put: (self typeSetWith: (SchmidtTypeCollectorType fromLiteral: pragma arguments second))  ].
+				collectedBlockArgClasses at: pragma arguments first asSymbol put: (self typeSetWith: (RuntimeTypeCollectorType fromLiteral: pragma arguments second))  ].
 
 		(#(returns: returns:generated:) includes: pragma selector) 
 			ifTrue: [ 
-				collectedReturnClasses addAll: (self typeSetWith: (SchmidtTypeCollectorType fromLiteral: pragma arguments first))  ].
+				collectedReturnClasses addAll: (self typeSetWith: (RuntimeTypeCollectorType fromLiteral: pragma arguments first))  ].
 
 		(#(block:returnsValue: block:returnsValue:generated:) includes: pragma selector) 
 			ifTrue: [ 

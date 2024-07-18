@@ -153,7 +153,7 @@ RuntimeTypeCollector >> mergeAll [
 	methodCollectors do: [ :each | each mergeAll. ].
 	
 	slotTypes := slotTypes collect: [ :slotDict |
-		slotDict collect: [ :types | SchmidtTypeCollectorType mergeAll: types. ] ]
+		slotDict collect: [ :types | RuntimeTypeCollectorType mergeAll: types. ] ]
 ]
 
 { #category : 'accessing' }
@@ -221,7 +221,7 @@ RuntimeTypeCollector >> readCurrentSlotTypesFromPragmasFor: aClass [
 			ifTrue: [ 
 				((slotTypes at: aClass ifAbsentPut: [ Dictionary new ])
 					at: pragma arguments first asSymbol ifAbsentPut: [ self newTypesSet ])
-					addAll: (self typeSetWith: (SchmidtTypeCollectorType fromLiteral: pragma arguments second)).
+					addAll: (self typeSetWith: (RuntimeTypeCollectorType fromLiteral: pragma arguments second)).
 		].
 	]
 ]

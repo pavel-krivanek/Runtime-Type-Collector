@@ -3,7 +3,7 @@ Describes a non-keyed collection type.
 "
 Class {
 	#name : 'RuntimeTypeCollectorCollectionType',
-	#superclass : 'SchmidtTypeCollectorType',
+	#superclass : 'RuntimeTypeCollectorType',
 	#instVars : [
 		'itemClasses'
 	],
